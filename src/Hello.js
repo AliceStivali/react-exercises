@@ -20,7 +20,13 @@ export class Message extends React.Component {
 export class App extends React.Component {
     render() {
         return <div>
-            <Hello />
+            <Welcome name="Alice"/>
         </div>
+    }
+}
+
+export class Welcome extends React.Component {
+    render() {
+        return <h2>Hello, {this.props.name}!</h2>
     }
 }
