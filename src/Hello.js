@@ -5,9 +5,15 @@ export class Hello extends React.Component {
         return (
             <div>
                 <h1>Hello, World!</h1>
-                <p>What a beautiful day!</p>
+                <Message />
             </div>
         )
+    }
+}
+
+export class Message extends React.Component {
+    render() {
+        return <p>What a beautiful day!</p>
     }
 }
 
