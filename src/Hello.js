@@ -20,7 +20,7 @@ export class Message extends React.Component {
 export class App extends React.Component {
     render() {
         return <div>
-            <Welcome name={<strong>Alice</strong>}/>
+            <Welcome name={<strong>Alice</strong>} age={30}/>
         </div>
     }
 }
@@ -29,8 +29,14 @@ export class Welcome extends React.Component {
     render() {
         return <div>
             <h2>Hello, {this.props.name}!</h2>
-            <p>Your age is {this.props.age}</p>
+            <Age />
             </div>
+    }
+}
+
+export class Age extends React.Component {
+    render() {
+        return <p>Your age is {this.props.age}</p>
     }
 }
 
