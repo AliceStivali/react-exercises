@@ -27,7 +27,10 @@ export class App extends React.Component {
 
 export class Welcome extends React.Component {
     render() {
-        return <h2>Hello, {this.props.name}!</h2>
+        return <div>
+            <h2>Hello, {this.props.name}!</h2>
+            <p>Your age is {this.props.age}</p>
+            </div>
     }
 }
 
