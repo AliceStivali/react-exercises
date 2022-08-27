@@ -20,7 +20,7 @@ export class Message extends React.Component {
 export class App extends React.Component {
     render() {
         return <div>
-            <Welcome name="Alice"/>
+            <Welcome />
         </div>
     }
 }
@@ -30,3 +30,7 @@ export class Welcome extends React.Component {
         return <h2>Hello, {this.props.name}!</h2>
     }
 }
+
+Welcome.defaultProps = {
+    name: 'Stranger'
+  };
