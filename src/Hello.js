@@ -20,7 +20,7 @@ export class Message extends React.Component {
 export class App extends React.Component {
     render() {
         return <div>
-            <Welcome />
+            <Welcome name={<strong>Alice</strong>}/>
         </div>
     }
 }
