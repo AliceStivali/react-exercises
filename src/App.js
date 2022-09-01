@@ -3,6 +3,7 @@ import { Welcome } from "./Welcome";
 import { Counter } from "./Counter";
 import { ClickTracker } from "./ClickTracker";
 import { InteractiveWelcome } from "./InteractiveWelcome";
+import { Login } from "./Login";
 
 
 export class App extends React.Component {
@@ -12,6 +13,7 @@ export class App extends React.Component {
             <Counter initialValue={0} incrementedBy={1} timeout={1000}/>
             <ClickTracker />
             <InteractiveWelcome />
+            <Login />
         </div>
     }
 }
