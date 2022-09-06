@@ -1,25 +1,31 @@
-import React from "react";
+import React, { createRef } from "react";
 
 export class UncontrolledLogin extends React.Component {
-    handleFormSubmit = (event) => {
-        event.preventDefault()
+    _formRef = createRef() 
+    handleFormChange = (event) => {
 
-        const username = event.target.elements.username.value
-        const password = event.target.elements.password.value
-        const remember = event.target.elements.remember.checked
+        const username = this._formRef.current.elements.username.value
+        const password = this._formRef.current.elements.password.value
+        const remember = this._formRef.current.remember.checked
         
-
+    
         console.log({username, password, remember})
+
+        if(username && password) {
+            this._formRef.current.elements.login.disabled = false
+        } else {
+            this._formRef.current.login.disabled = true
+        }
     }
     
     render() {
         return <div>
             <h3>Uncontrolled form</h3>
-            <form onSubmit={this.handleFormSubmit}>
+            <form ref={this._formRef} onChange={this.handleFormChange}>
                 <input name="username" />
                 <input name="password" type="password" />
                 <input name="remember" type="checkbox" />
-                <button type="submit" disabled="disabled">Login</button>
+                <button name="login" type="submit" disabled>Login</button>
                 <button type="reset">Reset</button>
             </form>
         </div>
