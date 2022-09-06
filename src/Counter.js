@@ -1,14 +1,20 @@
 import React from "react";
-import { CounterDisplay } from "./CounterDisplay";
+import { ClickCounter } from "./ClickCounter";
 
 export class Counter extends React.Component {
     state = {
         count: this.props.initialValue
+    };
+    constructor(state) {
+        super(state)
+        this.updateCounter = (event) => {
+            return (this.setState((state) => (state.count += this.props.incrementedBy)))
+        }
     }
 
     render() {
         return <div>
-            <CounterDisplay count={this.state.count} />
+            <ClickCounter count={this.state.count} clickCounter={this.updateCounter} />
         </div>
     }
 }
