@@ -16,7 +16,8 @@ export class TodoList extends React.Component {
 
     addToList = () =>
         this.setState((state) => ({
-            todos: [...this.state.todos, state.newTodo]
+            todos: [...this.state.todos, state.newTodo],
+            newTodo: ''
         }))
 
     render() {
