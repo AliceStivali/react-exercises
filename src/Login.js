@@ -28,6 +28,9 @@ export class Login extends React.Component {
 
 
     render() {
+        const ButtonStyle = {
+            backgroundColor: (this.state.password.length < 8) ? 'red' : 'green'
+        }
         return <div>
             <h2>Username</h2>
             <input name="username" value={this.state.username} onChange={this.handleInputChange} />
@@ -36,7 +39,7 @@ export class Login extends React.Component {
             <span>Remember
             <input name="remember" type="checkbox" checked={this.state.remember} onChange={this.handleInputChange} />
             </span>
-            <div><button name="login" disabled={this.state.username && this.state.password ? false : true}>Login</button></div>
+            <div><button name="login" disabled={this.state.username && this.state.password ? false : true} style={ButtonStyle}>Login</button></div>
             <div><button onClick={this.handleResetState}>Reset</button></div>
         </div>
     }
