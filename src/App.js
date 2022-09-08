@@ -11,7 +11,7 @@ import { Container } from "./Container";
 
 export class App extends React.Component {
     render() {
-        return <Container>
+        return <Container title="My App">
             <InteractiveWelcome />
             <Counter initialValue={0} incrementedBy={1} timeout={1000}/>
             <ClickTracker />
