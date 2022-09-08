@@ -6,18 +6,18 @@ import { InteractiveWelcome } from "./InteractiveWelcome";
 import { Login } from "./Login";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { TodoList } from "./TodoList";
+import { Container } from "./Container";
 
 
 export class App extends React.Component {
     render() {
-        return <div>
-            <Welcome name={<strong>Alice</strong>} age={30}/>
+        return <Container>
+            <InteractiveWelcome />
             <Counter initialValue={0} incrementedBy={1} timeout={1000}/>
             <ClickTracker />
-            <InteractiveWelcome />
             <Login />
             <UncontrolledLogin />
             <TodoList />
-        </div>
+        </Container>
     }
 }
