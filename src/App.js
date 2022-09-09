@@ -9,6 +9,7 @@ import { Container } from "./Container";
 import { LanguageContext } from "./LanguageContext";
 import { DisplayLanguage } from "./DisplayLanguage";
 import { Sum } from "./Sum";
+import { ClickCounter } from "./ClickCounter";
 
 
 export class App extends React.Component {
@@ -31,7 +32,8 @@ export class App extends React.Component {
            <DisplayLanguage />
                 <Container title="My App">
                     <InteractiveWelcome />
-                    <Counter initialValue={0} incrementedBy={1} timeout={1000}/>
+                    <ClickCounter />
+                    {/* <Counter initialValue={0} incrementedBy={1} timeout={1000}/> */}
                     <ClickTracker />
                     <Login />
                     <UncontrolledLogin />
