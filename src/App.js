@@ -41,7 +41,7 @@ export class App extends React.Component {
                         )
                     }
                     ></TodoList>
-                    <Sum numbers={[1, 2, 3, 4]}/>
+                    <Sum />
                 </Container>
                    </LanguageContext.Provider>
             </div>
