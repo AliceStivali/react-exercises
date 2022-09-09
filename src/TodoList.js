@@ -37,9 +37,7 @@ export class TodoList extends React.Component {
     render() {
         return <div>
             <h3>To do:</h3>
-            <ul>{this.state.todos.map((todo, index) => (
-            <li key={index}>{todo} <button onClick={this.handleRemoveButton}>Remove</button></li>
-            ))}</ul>
+            <ul>{this.props.render(this.state, this.handleRemoveButton)}</ul>
             <input name="newTodo" value={this.state.newTodo} onChange={this.handleNewTodo}></input>
             <button onClick={this.addToList}>Add task</button>
             <button onClick={this.handleResetButton}>Reset</button>
