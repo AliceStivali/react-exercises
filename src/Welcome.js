@@ -1,11 +1,12 @@
 import React from "react";
 import { Age } from "./Age";
 
-export function Welcome(props) {
+export function Welcome({ name }) {
     return (
         <div>
-            {props.name && <h2>Hello, {props.name}!</h2>}
-            {!props.name && <h2>Hello, stranger!</h2>}
+            {name && <h2>Hello, {name}!</h2>}
+            {!name && <h2>Hello, stranger!</h2>}
+            <Age age={30}/>
         </div>
     )
 }
