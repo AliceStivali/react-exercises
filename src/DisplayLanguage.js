@@ -1,23 +1,23 @@
 import React from "react";
 import { LanguageContext } from "./LanguageContext";
 
+const strings = {
+    en: {
+        current_lang: 'Current language is English'
+    },
+    it: {
+        current_lang: "La lingua selezionata è l'italiano"
+    }
+}
+
 export class DisplayLanguage extends React.Component {
-    state = {
-        language: 'en'
-    }
-
-    handleLanguageChange = (event) => {
-        this.setState({
-            language: event.target.value
-        })
-    }
-
     render() {
-        return <LanguageContext.Provider value={this.state.language}>
-             <select value={this.state.language} onChange={this.handleLanguageChange}>
-                <option value="en">ENGLISH</option>
-                <option value="it">ITALIANO</option>
-            </select>
-            </LanguageContext.Provider>
+        return <div>
+            <LanguageContext.Consumer>
+                {(Language) => {
+                    return <h1>{strings[Language].current_lang}</h1>
+                }}
+            </LanguageContext.Consumer>
+        </div>
     }
 }
