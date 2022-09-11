@@ -18,6 +18,10 @@ export class Login extends React.Component {
         })
     }
 
+    onLogin = (state) => {
+        console.log(state)
+    }
+
 
     render() {
         return <div>
@@ -28,7 +32,7 @@ export class Login extends React.Component {
             <span>Remember
             <input name="remember" type="checkbox" checked={this.state.remember} onChange={this.handleInputChange} />
             </span>
-            <div><button name="login" disabled={this.state.username && this.state.password ? false : true}>Login</button></div>
+            <div><button name="login" disabled={this.state.username && this.state.password ? false : true} onClick={this.onLogin}>Login</button></div>
         </div>
     }
 }
