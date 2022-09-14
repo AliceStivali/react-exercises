@@ -10,6 +10,7 @@ import { LanguageContext } from "./LanguageContext";
 import { DisplayLanguage } from "./DisplayLanguage";
 import { Sum } from "./Sum";
 import { ClickCounter } from "./ClickCounter";
+import { GithubUser } from "./GithubUser";
 
 
 export class App extends React.Component {
@@ -44,7 +45,8 @@ export class App extends React.Component {
                     }
                     ></TodoList>
                     <Sum />
-                    <Counter initialValue={0}/>
+                    {/* <Counter initialValue={0}/> */}
+                    <GithubUser username='AliceStivali'/>
                 </Container>
                    </LanguageContext.Provider>
             </div>
