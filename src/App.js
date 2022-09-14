@@ -39,11 +39,12 @@ export class App extends React.Component {
                     <UncontrolledLogin />
                     <TodoList 
                     render={(state, remove) => state.todos.map((todo, index) => 
-                        <li key={index}>{todo} <button onClick={remove}>Remove</button></li>
+                        <li key={index}>{todo} <button value={index} onClick={remove}>Remove</button></li>
                         )
                     }
                     ></TodoList>
                     <Sum />
+                    <Counter initialValue={0}/>
                 </Container>
                    </LanguageContext.Provider>
             </div>
