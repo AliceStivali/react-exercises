@@ -1,5 +1,4 @@
 import React from "react";
-import { Counter } from "./Counter";
 import { ClickTracker } from "./ClickTracker";
 import { InteractiveWelcome } from "./InteractiveWelcome";
 import { Login } from "./Login";
@@ -11,6 +10,7 @@ import { DisplayLanguage } from "./DisplayLanguage";
 import { Sum } from "./Sum";
 import { ClickCounter } from "./ClickCounter";
 import { GithubUser } from "./GithubUser";
+import { GithubUserList } from "./GithubUserList";
 
 
 
@@ -48,6 +48,7 @@ export class App extends React.Component {
                     <Sum />
                     {/* <Counter initialValue={0}/> */}
                     <GithubUser username='AliceStivali'/>
+                    <GithubUserList />
                 </Container>
                    </LanguageContext.Provider>
             </div>
