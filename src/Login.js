@@ -1,38 +1,69 @@
-import { useState } from "react"
+import { useState } from "react";
 
-export function Login() {
+function useForm() {
     const [state, setState] = useState({
         username: '',
         password: '',
-        remember: false
     })
 
     function handleInputChange(event) {
-        setState(previousValue => ({...previousValue, [event.target.name] : event.target.type === 'checkbox' ? event.target.checked : event.target.value}))
+        setState(previousValue => ({...previousValue, [event.target.name] : event.target.value}))
     }
 
-    function handleResetState() {
-        setState ({
-            username: '',
-            password: '',
-            remember: false
-        })
+    return {
+        inputText: state,
+        handleInput: handleInputChange,
     }
+}
+
+
+export function Login() {
+    const {inputText, handleInput} = useForm()
 
     return <div>
         <h2>Username</h2>
-        <input name="username" value={state.username} onChange={handleInputChange}></input>
+        <input name="username" value={inputText.username} onChange={handleInput}></input>
         <h2>Password</h2>
-        <input name="password" type="password" value={state.password} onChange={handleInputChange}></input>
-        <span>Remember
-            <input name="remember" type="checkbox" checked={state.remember} onChange={handleInputChange}></input>
-        </span>
-        <div>
-            <button name="login" disabled={state.username && state.password ? false : true}>Login</button>
-            <button name="reset" onClick={handleResetState}>Reset</button>
-        </div>
+        <input name="password" type="password" value={inputText.password} onChange={handleInput}></input>
     </div>
 }
+
+
+
+
+// export function Login() {
+//     const [state, setState] = useState({
+//         username: '',
+//         password: '',
+//         remember: false
+//     })
+
+//     function handleInputChange(event) {
+//         setState(previousValue => ({...previousValue, [event.target.name] : event.target.type === 'checkbox' ? event.target.checked : event.target.value}))
+//     }
+
+//     function handleResetState() {
+//         setState ({
+//             username: '',
+//             password: '',
+//             remember: false
+//         })
+//     }
+
+//     return <div>
+//         <h2>Username</h2>
+//         <input name="username" value={state.username} onChange={handleInputChange}></input>
+//         <h2>Password</h2>
+//         <input name="password" type="password" value={state.password} onChange={handleInputChange}></input>
+//         <span>Remember
+//             <input name="remember" type="checkbox" checked={state.remember} onChange={handleInputChange}></input>
+//         </span>
+//         <div>
+//             <button name="login" disabled={state.username && state.password ? false : true}>Login</button>
+//             <button name="reset" onClick={handleResetState}>Reset</button>
+//         </div>
+//     </div>
+// }
 
 
 
