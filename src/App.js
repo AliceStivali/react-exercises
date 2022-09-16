@@ -11,6 +11,7 @@ import { Sum } from "./Sum";
 import { ClickCounter } from "./ClickCounter";
 import { GithubUser } from "./GithubUser";
 import { GithubUserList } from "./GithubUserList";
+import { FilteredList } from "./FilteredList";
 
 
 
@@ -49,6 +50,7 @@ export class App extends React.Component {
                     {/* <Counter initialValue={0}/> */}
                     <GithubUser username='AliceStivali'/>
                     <GithubUserList />
+                    <FilteredList />
                 </Container>
                    </LanguageContext.Provider>
             </div>
