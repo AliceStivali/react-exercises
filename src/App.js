@@ -12,6 +12,7 @@ import { ClickCounter } from "./ClickCounter";
 import { GithubUser } from "./GithubUser";
 import { GithubUserList } from "./GithubUserList";
 import { FilteredList } from "./FilteredList";
+import { CarDetails } from "./CarDetails";
 
 
 
@@ -51,6 +52,7 @@ export class App extends React.Component {
                     <GithubUser username='AliceStivali'/>
                     <GithubUserList />
                     <FilteredList />
+                    <CarDetails />
                 </Container>
                    </LanguageContext.Provider>
             </div>
