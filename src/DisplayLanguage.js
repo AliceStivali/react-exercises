@@ -1,4 +1,4 @@
-import React from "react";
+import { useContext } from "react";
 import { LanguageContext } from "./LanguageContext";
 
 const strings = {
@@ -10,14 +10,23 @@ const strings = {
     }
 }
 
-export class DisplayLanguage extends React.Component {
-    render() {
-        return <div>
-            <LanguageContext.Consumer>
-                {(Language) => {
-                    return <h1>{strings[Language].current_lang}</h1>
-                }}
-            </LanguageContext.Consumer>
-        </div>
-    }
+export function DisplayLanguage() {
+    const language = useContext(LanguageContext)
+    return <h3>{strings[language]['current_lang']}</h3>
+
 }
+
+
+
+
+// export class DisplayLanguage extends React.Component {
+//     render() {
+//         return <div>
+//             <LanguageContext.Consumer>
+//                 {(Language) => {
+//                     return <h1>{strings[Language].current_lang}</h1>
+//                 }}
+//             </LanguageContext.Consumer>
+//         </div>
+//     }
+// }
