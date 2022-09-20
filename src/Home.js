@@ -13,8 +13,8 @@ import { Odd } from "./Odd";
 
 export function Home() {
     const [data, setData] = useState('')
-    const [odd, setOdd] = useState({oddList: []})
-    const [even, setEven] = useState({evenList: []})
+    const [odd, setOdd] = useState([])
+    const [even, setEven] = useState([])
 
     async function fetchRandom() {
         const response = await fetch('http://numbersapi.com/random/math')
@@ -25,9 +25,9 @@ export function Home() {
         const first = data.split(' ')[0]
 
         if(first % 2 == 0) {
-            setEven({evenList : [...even.evenList, data]})
+            setEven((state) => [...state, data])
         } else {
-            setOdd ({oddList : [...odd.oddList, data]})
+            setOdd((state) => [...state, data])
         }
     }
 
