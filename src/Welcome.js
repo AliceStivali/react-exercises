@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Age } from "./Age";
 
 export function Welcome({ name }) {
@@ -7,6 +8,7 @@ export function Welcome({ name }) {
             {name && <h2>Hello, {name}!</h2>}
             {!name && <h2>Hello, stranger!</h2>}
             <Age age={30}/>
+            <Link to="/counter">Counter</Link>
         </div>
     )
 }
