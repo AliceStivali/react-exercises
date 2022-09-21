@@ -6,7 +6,7 @@ export function GithubUser() {
     const { username } = useParams()
     const { data, loading, error } = useGithubUser(username)
 
-    return <div>
+    return username !== '' && <div>
         {loading && <h2>Loading...</h2>}
         {error && <h2>Error: username not found</h2>}
         {data && <div>
