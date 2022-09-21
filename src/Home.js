@@ -24,7 +24,7 @@ export function Home() {
         // console.log(data)
         const first = data.split(' ')[0]
 
-        if(first % 2 == 0) {
+        if(first % 2 === 0) {
             setEven((state) => [...state, data])
         } else {
             setOdd((state) => [...state, data])

@@ -5,7 +5,7 @@ export function Odd({odd}) {
     const [removeOdd, setRemoveOdd] = useState({oddList: odd}) 
 
     const showOddOnClick = () => {
-        setShowOdd(true)
+        setShowOdd(!showOdd)
     }
     
     useEffect(() => setRemoveOdd({oddList: odd})

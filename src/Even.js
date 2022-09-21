@@ -5,7 +5,7 @@ export function Even({even}) {
     const [removeEven, setRemoveEven] = useState({evenList: even}) 
 
     const showEvenOnClick = () => {
-        setShowEven(true)
+        setShowEven(!showEven)
     }
     
     useEffect(() => setRemoveEven({evenList: even})
