@@ -9,9 +9,12 @@ export function App() {
         <Routes> 
             <Route path="/" element={<Welcome name="Alice" />} />
             <Route path="counter" element={<Counter />} />
-            <Route path=":username" element={<GithubUser />} />
+            <Route path="githubuser/:username" element={<GithubUser />} />
+            <Route path="*" element={<div><p>Not found</p>
+                <Link to="/">Go Home</Link>
+                </div>} />
         </Routes>
-        <Link to="/">Welcome</Link> <Link to="/counter">Counter</Link> <Link to="/AliceStivali">Alice's profile</Link>
+        <Link to="/">Welcome</Link> <Link to="/counter">Counter</Link> <Link to="/githubuser/AliceStivali">Alice's profile</Link>
         </div>
 }
 
