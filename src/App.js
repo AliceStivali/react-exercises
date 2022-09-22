@@ -1,20 +1,22 @@
 import { Routes, Route } from "react-router-dom";
 import { Welcome } from "./Welcome"
 import { Counter } from "./Counter"
-import { GithubUser } from "./GithubUser";
+import { GithubUserList } from "./GithubUserList";
 import { Link } from "react-router-dom";
+import { ShowGithubUser } from "./ShowGithubUser";
 
 export function App() {
     return <div>
         <Routes> 
             <Route path="/" element={<Welcome name="Alice" />} />
             <Route path="counter" element={<Counter />} />
-            <Route path="githubuser/:username" element={<GithubUser />} />
+            <Route path="users/:username" element={<ShowGithubUser />} />
+            <Route path="users" element={<GithubUserList />} />
             <Route path="*" element={<div><p>Not found</p>
                 <Link to="/">Go Home</Link>
                 </div>} />
         </Routes>
-        <Link to="/">Welcome</Link> <Link to="/counter">Counter</Link> <Link to="/githubuser/AliceStivali">Alice's profile</Link>
+        <Link to="/">Welcome</Link> <Link to="/counter">Counter</Link> <Link to="/users">Users</Link>
         </div>
 }
 
