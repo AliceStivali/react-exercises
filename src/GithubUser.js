@@ -4,9 +4,10 @@ import { useGithubUser } from './useGithubUser'
 
 export function GithubUser() {
     const { username } = useParams()
-    const { data, loading, error } = useGithubUser(username)
+    const { data, loading, error, onRefresh } = useGithubUser(username)
 
     return username !== '' && <div>
+        <button onClick={onRefresh}>Refresh</button>
         {loading && <h2>Loading...</h2>}
         {error && <h2>Error: username not found</h2>}
         {data && <div>
