@@ -8,7 +8,7 @@ export function App() {
         <Routes>
             <Route path="/" element={<Welcome name="Alice" />} />
             <Route path="counter" element={<Counter />} />
-            <Route path="/:username" element={<GithubUser />} />
+            <Route path="users/:username" element={<GithubUser />} />
         </Routes>
     )
 }
