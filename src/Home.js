@@ -1,43 +1,37 @@
-import { useEffect, useState } from "react";
-import { Even } from "./Even";
-import { Odd } from "./Odd";
+import { useState } from "react";
+import useSWR from "swr";
 
 
-// Parte 1
-// Creare un'applicazione che abbia i componenti Home, Odd e Even
-// Visualizzare nel componente Home un bottone che al click ritorna la frase contenuta nell'endpoint http://numbersapi.com/random/math ed inoltre aggiungere due bottoni: even e odd.
-// In base al primo numero della frase risultata dall'API, aggiungetela automaticamente al componente Odd o Even; cliccando sui rispettivi pulsanti verrà mostrata la lista di frasi.
+// Convertire l'esercizio di Odd e Even per gestire una lista di todo.
+// Utilizzare l'api fornita nell'esercizio Odd e Even per ottenere delle frasi da inserire nella lista "ToDo" 
+// la quale conterrà tutti gli elementi che non sono ancora stati contrassegnati come completati. Ogni riga di 
+// questa lista avrà un bottone che chiamerai "Completa" che servirà a completare i task e aspostarli nella lista "Done". 
+// Entrambe le liste devono essere sempre in vista.
 
-// Parte 2
-// Per ogni item della lista aggiungere un bottone che cancella l
 
 export function Home() {
-    const [data, setData] = useState('')
-    const [odd, setOdd] = useState([])
-    const [even, setEven] = useState([])
+    const fetcher = url => fetch(url).then(response => response.text())
+    const {data, mutate} = useSWR('http://numbersapi.com/random/math', fetcher)
+    const [todo, setTodo] = useState([]) 
+    const [done, setDone] = useState([])
 
-    async function fetchRandom() {
-        const response = await fetch('http://numbersapi.com/random/math')
-        const data = await response.text()
-
-        setData(data)
-        // console.log(data)
-        const first = data.split(' ')[0]
-
-        if(first % 2 === 0) {
-            setEven((state) => [...state, data])
-        } else {
-            setOdd((state) => [...state, data])
-        }
+    function handleFetch() {
+        mutate()
+        setTodo(prev => [...prev, data])
     }
 
-    useEffect(() => {fetchRandom()}
-    , [])
-    
+    function addToDone(e) {
+        const value = e.target.id
+        setDone(prev => [...prev, todo.splice(value, 1)])
+    }
+
     return <div>
-        <button onClick={fetchRandom}>Random</button>
-        {data && data}
-        <Even even={even} />
-        <Odd odd={odd} />
-        </div>
+        <button onClick={handleFetch}>Fetch</button>
+        <div>To do:</div>
+        {todo && todo.map((item, index) => <li key={index}>{item} <button id={index} onClick={addToDone}>Complete</button></li>)}
+        <div>Done:</div>
+        {done && done.map((item, index) => <li key={index}>{item}</li>)}
+    </div>
 }
+
+export default Home;

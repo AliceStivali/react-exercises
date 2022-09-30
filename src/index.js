@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
-import { App } from "./App";
-import './index.css'
+import { App } from "./App"
+
 
 const appElement = <App />
 const root = document.querySelector('#root')
