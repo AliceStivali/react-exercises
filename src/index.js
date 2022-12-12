@@ -7,6 +7,7 @@ import {
   decrementCounter,
   resetCounter,
 } from "./CounterState";
+import { addTodo, editTodo } from "./state/TodosReducer";
 
 const root = document.querySelector("#root");
 
@@ -19,3 +20,6 @@ store.subscribe(() => {
 store.dispatch(incrementCounter());
 store.dispatch(decrementCounter());
 store.dispatch(resetCounter());
+
+store.dispatch(addTodo({ id: 1, title: "Buy milk", completed: false }));
+store.dispatch(editTodo(1, { completed: true }));
